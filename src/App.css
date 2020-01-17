@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  box-sizing:border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html{
+  height:96%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+body{
+  margin-top: 49px;
+  font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+  background:linear-gradient(145deg, #1488CC, #2B32B2) 0% 0% / cover; 
+  color:black;
+  position: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: right;
+  justify-content: right;
 }
 
-.App-link {
-  color: #61dafb;
+header{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position:absolute;
+  top:0px;
+  left:0px;
+  height:40px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f1f1f1;
+  font-size:23px;
+  color:#2B32B2;
+  padding:5px;
+  /* font-weight:bold; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer{
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  height:50px;
+  width:100%;
+  background:#1488CC;
+  padding:2px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  outline:0;
+}
+
+input{
+  width:246px;
+  border: solid #f1f1f1;
+  background: #f1f1f1;
+  border-radius:20px;
+  padding:6px;
+  margin:5px;
+  outline:0;
+}
+
+input:focus{
+  width:246px;
+  height: 28px;
+  border: solid white;
+  background: #b8dcff;
+  border-radius:20px;
+  padding:6px;
+  margin:5px;
+  outline:0;
+}
+
+button{
+  height: 26px;
+  width: 26px;
+  position:absolute;
+  bottom: 12px;
+  right:10px;
+  outline:0;
+  cursor:pointer;
+  border-radius:27px;
+  border: solid #2B32B2;
+  background: #f1f1f1;
+  color: #2B32B2;
+}
+
+button:active{
+  background: #2B32B2;
+  color: #f1f1f1;
+}
+
+.logo{
+  position:relative;
+  height:23px;
+  transform: scaleX(-1) rotate(35deg);
+  margin:-4px;
+}
+
+.title{
+  position:relative;
+  top:-3px;
+  font-family:Arial;
+}
+
+.message {
+  clear:both;
+  float:right;
+	background: #f1f1f1;
+	border-radius: .4em;
+  padding:8px;
+  margin: 8px;
+  margin-left:60px;
 }
