@@ -2,19 +2,23 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import './db'
 import NamePicker from './namePicker'
-import { db } from './db';
+import { db, useDB } from './db';
+import {BrowserRouter,Route} from 'react-router-dom'
 
-function App() {
-  const [messages, setMessages] = useState([])
-  const [name, setName] = useState('')
-
-  useEffect(() =>{
-    db.listen({
-      receive: m=> {
-        setMessages(current=>[m,...current])
-    },
-    })
+function App(){
+  useEffect(()=>{
+    const {pathname} = window.location
+    if(pathname.length<2) window.location.pathname='home'
   }, [])
+  return <BrowserRouter>
+    <Route path="/:room" component={Room}/>
+  </BrowserRouter>
+}
+
+function Room(props) {
+  const {room} = props.match.params
+  const [name, setName] = useState('')
+  const messages = useDB(room)
 
   return <main>
     <header>
@@ -27,9 +31,11 @@ function App() {
     <body>
       <div className="messages">
         {messages.map((m,i)=>{
-          return <div key={i} className="message-wrap">
-            <div className="message">{m.text}
-              {m.name}
+          return <div key={i} className="message-wrap"
+            from={m.name===name?'me':'you'}>
+            <div className="message">
+              <div className="msg-text">{m.text}</div>
+              <div className="msg-name" from={m.name===name?'me':'you'}>{m.name === "" ? "anon" : m.name}</div>
             </div>
           </div>
         })}
@@ -38,7 +44,7 @@ function App() {
     <footer>
     <TextInput onSend={(text) => {
         db.send({
-          text:text, name:name, ts: new Date()
+          text:text, name:name, ts:new Date(), room
         })
       }} />
     </footer>

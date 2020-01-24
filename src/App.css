@@ -2,17 +2,22 @@
 *{
   box-sizing:border-box;
 }
-html{
-  height:96%;
+html,body{
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
 }
+
 body{
-  margin-top: 49px;
+  height:100%;
   font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
   background:linear-gradient(145deg, #1488CC, #2B32B2) 0% 0% / cover; 
   color:black;
-  position: flex;
-  flex-direction: column;
-  align-items: right;
+  display: flex;
+  align-items: center;
   justify-content: right;
 }
 
@@ -30,6 +35,7 @@ header{
   width:100%;
   background:#f1f1f1;
   color:#2B32B2;
+  z-index: 1;
 }
 
 footer{
@@ -112,28 +118,60 @@ button:disabled{
 }
 
 .messages{
-  height:calc(100vh - 96px);
   width:100vw;
   position: absolute;
-  top: 42px;
+  top:40px;
+  bottom: 50px;
   left: 0;
   display: flex;
   flex-direction: column-reverse;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .message-wrap{
   width: 100%;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
-.message {
+.message-wrap[from="me"]{
+  justify-content: flex-end;
+}
+
+.message{
+  position:relative;
+  margin-top:15px;
+  max-width: 80%;
+  /* width: max-content; */
+}
+
+.msg-text {
 	background: #f1f1f1;
 	border-radius: .4em;
   padding: 8px;
   margin: 8px;
   display: inline-block;
+  min-width: 65px;
+  word-break: break-word;
+}
+
+.msg-name[from="you"]{
+  position: absolute;
+  font-size: smaller;
+  top:-12px;
+  left:9px;
+  font-weight: bold;
+  color:rgb(255, 255, 255);
+}
+
+.msg-name[from="me"]{
+  position: absolute;
+  font-size: smaller;
+  top:-12px;
+  right:9px;
+  font-weight: bold;
+  color:rgb(255, 123, 0);
 }
 
 .edit-username{
@@ -157,11 +195,16 @@ button:disabled{
 }
 
 .name-input{
-  width:100px;
+  width:105px;
   margin:-5px;
+  padding: 10px;
   text-align:right;
   border: solid white;
-  background:rgb(255, 155, 155);
+  background:rgb(255, 197, 197);
+}
+
+.name-input::placeholder{
+  text-align:left;
 }
 
 .name-button{
