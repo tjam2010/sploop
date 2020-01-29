@@ -2,13 +2,17 @@
 *{
   box-sizing:border-box;
 }
-html,body{
+html,body,#root{
   height:100%;
   position: fixed;
   top:0;
   left:0;
   bottom:0;
   right:0;
+} 
+
+html{
+  /* font-size:15px; */
 }
 
 body{
@@ -31,7 +35,7 @@ header{
   position:absolute;
   top:0px;
   left:0px;
-  height:40px;
+  height:3.5rem;
   width:100%;
   background:#f1f1f1;
   color:#2B32B2;
@@ -42,7 +46,7 @@ footer{
   position:absolute;
   bottom:0px;
   left:0px;
-  height:50px;
+  height:4rem;
   width:100%;
   background:#1488CC;
   padding:2px;
@@ -54,7 +58,7 @@ footer{
 
 input{
   width:246px;
-  height: 28px;
+  height:2rem;
   border: solid #f1f1f1;
   background: #f1f1f1;
   border-radius:20px;
@@ -69,8 +73,8 @@ input:focus{
 }
 
 button{
-  height: 26px;
-  width: 26px;
+  height: 2rem;
+  width: 2rem;
   outline:0;
   cursor:pointer;
   border-radius:27px;
@@ -96,32 +100,33 @@ button:disabled{
 .title{
   display:flex;
   justify-content:center;
-  font-size:23px;
+  font-size:1.6rem;
   position:relative;
-  margin:4px;
+
+  margin:.6rem .2rem;
   font-family:Arial;
   z-index:0;
 }
 
 .logo{
   position:relative;
-  height:23px;
+  height:1.6rem;
   transform: scaleX(-1) rotate(35deg);
-  margin:4px -4px;
+  margin:.3rem -.3rem;
   z-index:-1;
 }
 
 .send-button{
   position:absolute;
-  bottom: 12px;
-  right:10px;
+  bottom:1rem;
+  right:1rem;
 }
 
 .messages{
   width:100vw;
   position: absolute;
-  top:40px;
-  bottom: 50px;
+  top:3.5rem;
+  bottom: 4rem;
   left: 0;
   display: flex;
   flex-direction: column-reverse;
@@ -133,6 +138,7 @@ button:disabled{
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex-shrink:0;
 }
 
 .message-wrap[from="me"]{
@@ -142,6 +148,7 @@ button:disabled{
 .message{
   position:relative;
   margin-top:15px;
+  margin-bottom: 0px;
   max-width: 80%;
   /* width: max-content; */
 }
@@ -152,8 +159,14 @@ button:disabled{
   padding: 8px;
   margin: 8px;
   display: inline-block;
-  min-width: 65px;
+  /* min-width: 65px; */
   word-break: break-word;
+}
+
+.msg-img {
+	border-radius: 15px;
+  margin: 8px;
+  display: inline-block;
 }
 
 .msg-name[from="you"]{
@@ -208,5 +221,16 @@ button:disabled{
 }
 
 .name-button{
-  margin:7px 10px;
+  margin:.7rem;
+}
+
+.camera-button{
+  position:absolute;
+  bottom: 1rem;
+  left:1rem;
+}
+
+.fi-camera{
+  height:15;
+  width:15;
 }

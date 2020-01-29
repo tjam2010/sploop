@@ -8,10 +8,12 @@
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.7.0",
     "react": "^16.12.0",
+    "react-div-100vh": "^0.3.8",
     "react-dom": "^16.12.0",
     "react-icons": "^3.8.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "react-snap-pic": "0.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
